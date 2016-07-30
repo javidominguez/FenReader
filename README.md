@@ -1,0 +1,2 @@
+# FenReader
+Addon for NVDA
