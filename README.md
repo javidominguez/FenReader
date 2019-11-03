@@ -1,6 +1,6 @@
 This addon translates a chess game position from FEN code to human friendly description.
 
-Forsyth–Edwards Notation (FEN) is a standard notation for describing a particular board position of a chess game.
+ForsythÂ–Edwards Notation (FEN) is a standard notation for describing a particular board position of a chess game.
 
 ## Usage:
 
