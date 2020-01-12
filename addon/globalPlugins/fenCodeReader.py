@@ -9,10 +9,12 @@ import addonHandler
 import api
 import ui
 import textInfos
-import win32clipboard
+import versionInfo
+if versionInfo.version_year < 2019:
+	import win32clipboard
 from time import sleep
 from threading import Thread
-import fen
+from . import fen
 
 addonHandler.initTranslation()
 
@@ -51,11 +53,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				c = c+1
 			if description:
 				if copyToClipboard:
-					win32clipboard.OpenClipboard()
-					win32clipboard.EmptyClipboard()
-					win32clipboard.SetClipboardText(description)
-					win32clipboard.CloseClipboard()
-					ui.message(_("Copied to clipboard"))
+					if not api.copyToClip(description) and versionInfo.version_year < 2019:
+						win32clipboard.OpenClipboard()
+						win32clipboard.EmptyClipboard()
+						win32clipboard.SetClipboardText(description)
+						win32clipboard.CloseClipboard()
+						ui.message(_("Copied to clipboard"))
+					else:
+						ui.message(_("Copied to clipboard"))
 				ui.message(description)
 			else:
 				ui.message(_("Selected text doesn't contains a valid FEN code"))
