@@ -5,11 +5,8 @@
 # October 2015
 
 import addonHandler
-import globalPluginHandler
+import re
 
-class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-	pass
-	
 addonHandler.initTranslation()
 
 notationLanguage = 0
@@ -18,6 +15,16 @@ notations = (
 (_("Spanish"), "RDTACPrdtacp"),
 (_("French"), "RDTFCPrdtfcp")
 )
+phoneticColumnNames = {
+"A": _("Alpha"),
+"B": _("Bravo"),
+"C": _("Charlie"),
+"D": _("Delta"),
+"E": _("Echo"),
+"F": _("Foxtrot"),
+"G": _("Golf"),
+"H": _("Hotel")
+}
 
 class piece():
 	def __init__(self, sign, singleName, pluralName):
@@ -92,5 +99,9 @@ def decode(fenCode, signs="KQRBNPkqrbnp"):
 			board = _("%s\nBlack plays") % board
 	except:
 		pass
+	if True: # Config value phonetic method
+		for c in "ABCDEFGH":
+			for r in "12345678":
+				board = re.sub(c+r, phoneticColumnNames[c]+r, board)
 	return(board)
 	
