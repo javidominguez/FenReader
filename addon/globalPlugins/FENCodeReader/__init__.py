@@ -36,7 +36,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
 		fen.phoneticMethod = config.conf["FENReader"]["phoneticMethod"]
 
-	def getSelection(self):
+	def getRawText(self):
 		obj=api.getFocusObject()
 		treeInterceptor=obj.treeInterceptor
 		if hasattr(treeInterceptor,'TextInfo') and not treeInterceptor.passThrough:
@@ -46,17 +46,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except :
 			info=None
 		if not info or info.isCollapsed:
-			return None
+			try:
+				return True, api.getClipData()
+			except OSError:
+				return False, None
 		else:
-			return info.text
+			return False, info.text
 			
 	def describeBoard(self, copyToClipboard=False):
-		selectedText = self.getSelection()
-		if selectedText:
+		fromClipboard, rawText = self.getRawText()
+		if rawText:
 			# Search a valid code into selected text
 			description = None
 			c = 0
-			l = len(selectedText)
+			l = len(rawText)
 			timeForSearching = Thread(target=sleep, args=(0.3,))
 			timeForSearching.start()
 			while not description and c < l-16:
@@ -64,12 +67,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					ui.message(_("Too much text has been selected"))
 					return
 				# First use english notation by default
-				description = fen.decode(selectedText[c:], fen.notations["en"])
+				description = fen.decode(rawText[c:], fen.notations["en"])
 				if not description:
 					# Also use the notation for the local language
 					localLanguage = languageHandler.getLanguage()[:2]
 					if localLanguage in fen.notations and localLanguage != "en":
-						description = fen.decode(selectedText[c:], fen.notations[localLanguage])
+						description = fen.decode(rawText[c:], fen.notations[localLanguage])
 				c = c+1
 			if description:
 				if copyToClipboard:
@@ -83,7 +86,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						ui.message(_("Copied to clipboard"))
 				ui.message(description)
 			else:
-				ui.message(_("Selected text doesn't contains a valid FEN code"))
+				if fromClipboard:
+					ui.message(_("There is not selected text"))
+				else:
+					ui.message(_("Selected text doesn't contains a valid FEN code"))
 		else:
 			ui.message(_("There is not selected text"))
 			
