@@ -1,12 +1,17 @@
 # -*- coding: UTF-8 -*-
+"""
+NVDA Addon to translate from FEN code (Forsyth-Edwards Notation) to human friendly description
 
-# NVDA Addon to translate from FEN code (Forsyth-Edwards Notation) to human friendly description
-# Javi Dominguez <fjavids@gmail.com>
-# V 1.0 October 2015
+This file is covered by the GNU General Public License.
+See the file COPYING.txt for more details.
+Copyright  (c) 2015-2021 Javi Dominguez <fjavids@gmail.com>
+"""
 
 import globalPluginHandler
 import addonHandler
 import api
+import languageHandler
+import config
 import ui
 import textInfos
 import versionInfo
@@ -16,12 +21,21 @@ from time import sleep
 from threading import Thread
 from . import fen
 
+confspec = {
+	"phoneticMethod":"boolean(default=False)"
+	}
+config.conf.spec["FENReader"]=confspec
+
 addonHandler.initTranslation()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 	scriptCategory = "FEN Reader"
-	
+
+	def __init__(self, *args, **kwargs):
+		super(GlobalPlugin, self).__init__(*args, **kwargs)
+		fen.phoneticMethod = config.conf["FENReader"]["phoneticMethod"]
+
 	def getSelection(self):
 		obj=api.getFocusObject()
 		treeInterceptor=obj.treeInterceptor
@@ -32,9 +46,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except :
 			info=None
 		if not info or info.isCollapsed:
-			return(None)
+			return None
 		else:
-			return(info.text)
+			return info.text
 			
 	def describeBoard(self, copyToClipboard=False):
 		selectedText = self.getSelection()
@@ -43,13 +57,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			description = None
 			c = 0
 			l = len(selectedText)
-			timeForSearching = Thread(target=sleep, args=(0.2,))
+			timeForSearching = Thread(target=sleep, args=(0.3,))
 			timeForSearching.start()
 			while not description and c < l-16:
 				if not timeForSearching.isAlive():
 					ui.message(_("Too much text has been selected"))
-					return()
-				description = fen.decode(selectedText[c:], fen.notations[fen.notationLanguage][1])
+					return
+				# First use english notation by default
+				description = fen.decode(selectedText[c:], fen.notations["en"])
+				if not description:
+					# Also use the notation for the local language
+					localLanguage = languageHandler.getLanguage()[:2]
+					if localLanguage in fen.notations and localLanguage != "en":
+						description = fen.decode(selectedText[c:], fen.notations[localLanguage])
 				c = c+1
 			if description:
 				if copyToClipboard:
@@ -77,16 +97,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# Translators: Message presented in input help mode.
 	script_copyToClipboard.__doc__ = _("if selected text contains a valid FEN code, describes the chess game position and copy it to clipboard")
 	
-	def script_changeNotationLanguage(self, gesture):
-		fen.notationLanguage = fen.notationLanguage+1
-		if fen.notationLanguage >= len(fen.notations):
-			fen.notationLanguage = 0
-		ui.message(fen.notations[fen.notationLanguage][0])
-	# Translators: Message presented in input help mode.
-	script_changeNotationLanguage.__doc__ = _("Changes chess notation language")
-	
 	__gestures = {
 	"kb:NVDA+Control+F8": "describeBoard",
-	"kb:NVDA+Shift+F8": "copyToClipboard",
-	"kb:NVDA+Control+Shift+F8": "changeNotationLanguage"
+	"kb:NVDA+Shift+F8": "copyToClipboard"
 	}

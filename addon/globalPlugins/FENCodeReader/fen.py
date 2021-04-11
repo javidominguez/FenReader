@@ -1,30 +1,23 @@
 # -*- coding: UTF-8 -*-
+"""
+FEN (Forsyth-Edwards Notation) decoder
 
-# FEN (Forsyth-Edwards Notation) decoder
-# Javi Dominguez <fjavids@gmail.com>
-# October 2015
+This file is covered by the GNU General Public License.
+See the file COPYING.txt for more details.
+Copyright  (c) 2015-2021 Javi Dominguez <fjavids@gmail.com>
+"""
 
 import addonHandler
-import re
 
 addonHandler.initTranslation()
 
-notationLanguage = 0
-notations = (
-(_("English"), "KQRBNPkqrbnp"),
-(_("Spanish"), "RDTACPrdtacp"),
-(_("French"), "RDTFCPrdtfcp")
-)
-phoneticColumnNames = {
-"A": _("Alpha"),
-"B": _("Bravo"),
-"C": _("Charlie"),
-"D": _("Delta"),
-"E": _("Echo"),
-"F": _("Foxtrot"),
-"G": _("Golf"),
-"H": _("Hotel")
+notations = {
+"en": "KQRBNPkqrbnp",
+"es": "RDTACPrdtacp",
+"fr": "RDTFCPrdtfcp"
 }
+
+phoneticMethod = False
 
 class piece():
 	def __init__(self, sign, singleName, pluralName):
@@ -37,13 +30,13 @@ class piece():
 			return("")
 		l = len(self.squares)
 		if l== 1:
-			return (_("%s at %s.\n") %(self.singleName, self.squares[0]))
+			return _("%s at %s.\n") % (self.singleName, self.squares[0])
 		self.squares.sort()
 		list = _("%s at %s") %(self.pluralName, self.squares[0])
 		for i in range (1, l-1):
 			list = "%s, %s" %(list, self.squares[i])
 		list = _("%s and %s.\n") %(list, self.squares[-1])
-		return(list)
+		return list
 		
 def decode(fenCode, signs="KQRBNPkqrbnp"):
 	pieces = [
@@ -59,13 +52,16 @@ def decode(fenCode, signs="KQRBNPkqrbnp"):
 	piece(signs[9], _("Black bishop"), _("Black bishops")),
 	piece(signs[10], _("Black knight"), _("Black knights")),
 	piece(signs[11], _("Black pown"), _("Black powns")) ]
-	column = ("A","B","C","D","E","F","G","H")
+	if phoneticMethod:
+		column = (_("Alpha"), _("Bravo"), _("Charlie"), _("Delta"), _("Echo"), _("Foxtrot"), _("Golf"), _("Hotel"))
+	else:
+		column = ("A","B","C","D","E","F","G","H")
 	rows = fenCode.split()[0].split("/")
 	if len(rows) != 8:
-		return("")
+		return
 	for r in range (0, 8):
 		if len(rows[r]) > 8:
-			return("")
+			return
 		c = 0
 		skip = 0
 		while c<8 and c<len(rows[r]):
@@ -81,13 +77,13 @@ def decode(fenCode, signs="KQRBNPkqrbnp"):
 							searching = False
 						except:
 							# column out of range indicates bad FEN code
-							return("")
+							return
 					p = p+1
 				if searching:
-					return("")
+					return
 			c = c+1
 		if c+skip != 8:
-			return("")
+			return
 	board = ""
 	for p in pieces:
 		board = board+p.getSquares()
@@ -99,9 +95,5 @@ def decode(fenCode, signs="KQRBNPkqrbnp"):
 			board = _("%s\nBlack plays") % board
 	except:
 		pass
-	if True: # Config value phonetic method
-		for c in "ABCDEFGH":
-			for r in "12345678":
-				board = re.sub(c+r, phoneticColumnNames[c]+r, board)
-	return(board)
+	return board
 	
