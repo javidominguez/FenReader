@@ -20,9 +20,11 @@ if versionInfo.version_year < 2019:
 from time import sleep
 from threading import Thread
 from . import fen
+from .gui import *
 
 confspec = {
-	"phoneticMethod":"boolean(default=False)"
+	"phoneticMethod":"boolean(default=False)",
+	"showDialog":"boolean(default=True)"
 	}
 config.conf.spec["FENReader"]=confspec
 
@@ -84,7 +86,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						ui.message(_("Copied to clipboard"))
 					else:
 						ui.message(_("Copied to clipboard"))
-				ui.message(description)
+				if config.conf["FENReader"]["showDialog"]:
+					dialog = DialogMsg(gui.mainFrame, _("Fen Reader"), description)
+					gui.mainFrame.prePopup()
+					dialog.Show()
+				else:
+					ui.message(description)
 			else:
 				if fromClipboard:
 					ui.message(_("There is not selected text"))
