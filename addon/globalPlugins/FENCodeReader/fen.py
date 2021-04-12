@@ -53,6 +53,7 @@ def decode(fenCode, signs="KQRBNPkqrbnp"):
 	piece(signs[10], _("Black knight"), _("Black knights")),
 	piece(signs[11], _("Black pown"), _("Black powns")) ]
 	if phoneticMethod:
+		# Translators: Column names expressed in phonetic alphabet
 		column = (_("Alpha"), _("Bravo"), _("Charlie"), _("Delta"), _("Echo"), _("Foxtrot"), _("Golf"), _("Hotel"))
 	else:
 		column = ("A","B","C","D","E","F","G","H")

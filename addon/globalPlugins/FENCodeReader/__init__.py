@@ -20,11 +20,12 @@ if versionInfo.version_year < 2019:
 from time import sleep
 from threading import Thread
 from . import fen
-from .gui import *
+from ._gui import *
 
 confspec = {
 	"phoneticMethod":"boolean(default=False)",
-	"showDialog":"boolean(default=True)"
+	"clipboard":"boolean(default=False)",
+	"showWindow":"boolean(default=False)"
 	}
 config.conf.spec["FENReader"]=confspec
 
@@ -32,11 +33,31 @@ addonHandler.initTranslation()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
-	scriptCategory = "FEN Reader"
+	scriptCategory = "FEN reader"
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
+		if hasattr(settingsDialogs, 'SettingsPanel'):
+			NVDASettingsDialog.categoryClasses.append(FENReaderPanel)
+		else:
+			self.prefsMenu = gui.mainFrame.sysTrayIcon.preferencesMenu
+			#TRANSLATORS: The configuration option in NVDA Preferences menu
+			self.FENReaderSettingsItem = self.prefsMenu.Append(wx.ID_ANY, u"FEN reader...", _("FEN reader settings"))
+			gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self.onFENReaderMenu, self.FENReaderSettingsItem)
 		fen.phoneticMethod = config.conf["FENReader"]["phoneticMethod"]
+
+	def onFENReaderMenu(self, evt):
+		# Compatibility with older versions of NVDA
+		gui.mainFrame._popupSettingsDialog(FENReaderSettings)
+
+	def terminate(self):
+		try:
+			if hasattr(settingsDialogs, 'SettingsPanel'):
+				NVDASettingsDialog.categoryClasses.remove(FENReaderPanel)
+			else:
+				self.prefsMenu.RemoveItem(self.FENReaderSettingsItem)
+		except:
+			pass
 
 	def getRawText(self):
 		obj=api.getFocusObject()
@@ -55,7 +76,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			return False, info.text
 			
-	def describeBoard(self, copyToClipboard=False):
+	def describeBoard(self):
 		fromClipboard, rawText = self.getRawText()
 		if rawText:
 			# Search a valid code into selected text
@@ -77,16 +98,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						description = fen.decode(rawText[c:], fen.notations[localLanguage])
 				c = c+1
 			if description:
-				if copyToClipboard:
+				if config.conf["FENReader"]["clipboard"]:
 					if not api.copyToClip(description) and versionInfo.version_year < 2019:
 						win32clipboard.OpenClipboard()
 						win32clipboard.EmptyClipboard()
 						win32clipboard.SetClipboardText(description)
 						win32clipboard.CloseClipboard()
-						ui.message(_("Copied to clipboard"))
+						if not config.conf["FENReader"]["showWindow"]: ui.message(_("Copied to clipboard"))
 					else:
-						ui.message(_("Copied to clipboard"))
-				if config.conf["FENReader"]["showDialog"]:
+						if not config.conf["FENReader"]["showWindow"]: ui.message(_("Copied to clipboard"))
+				if config.conf["FENReader"]["showWindow"]:
 					dialog = DialogMsg(gui.mainFrame, _("Fen Reader"), description)
 					gui.mainFrame.prePopup()
 					dialog.Show()
@@ -105,12 +126,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# Translators: Message presented in input help mode.
 	script_describeBoard.__doc__ = _("if selected text contains a valid FEN code, describes the chess game position")
 
-	def script_copyToClipboard(self, gesture):
-		self.describeBoard(True)
-	# Translators: Message presented in input help mode.
-	script_copyToClipboard.__doc__ = _("if selected text contains a valid FEN code, describes the chess game position and copy it to clipboard")
-	
 	__gestures = {
-	"kb:NVDA+Control+F8": "describeBoard",
-	"kb:NVDA+Shift+F8": "copyToClipboard"
+	"kb:NVDA+Control+F8": "describeBoard"
 	}

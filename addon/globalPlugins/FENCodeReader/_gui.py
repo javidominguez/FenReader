@@ -9,12 +9,23 @@ Copyright  (c) 2015-2021 Javi Dominguez <fjavids@gmail.com>
 
 import addonHandler
 import api
-import wx
+import config
 import gui
 import ui
+import wx
+from . import fen
+
+# Settings compatibility with older versions of NVDA
+from gui import settingsDialogs
+try:
+	from gui import NVDASettingsDialog
+	from gui.settingsDialogs import SettingsPanel
+except:
+	SettingsPanel = object
 
 addonHandler.initTranslation()
 
+# Class inspired by the DLEChecker addon by antramcs with contributions from HXeBoLaX
 class DialogMsg(wx.Dialog):
 # Function taken from the add-on emoticons to center the window
 	def _calculatePosition(self, width, height):
@@ -80,3 +91,47 @@ class DialogMsg(wx.Dialog):
 		self.Destroy()
 		gui.mainFrame.postPopup()
 
+# Settings GUI compatible with all versions of NVDA
+
+class Settings():
+	
+	def makeSettings(self, sizer):
+		self.phoneticMethodCheckBox=wx.CheckBox(self, wx.NewId(), label=_("Use phonetic alphabet in column names"))
+		self.phoneticMethodCheckBox.SetValue(config.conf["FENReader"]["phoneticMethod"])
+		sizer.Add(self.phoneticMethodCheckBox,border=10,flag=wx.BOTTOM)
+		self.clipboardCheckBox=wx.CheckBox(self, wx.NewId(), label=_("Always copy position to clipboard"))
+		self.clipboardCheckBox.SetValue(config.conf["FENReader"]["clipboard"])
+		sizer.Add(self.clipboardCheckBox,border=10,flag=wx.BOTTOM)
+		self.showWindowCheckBox=wx.CheckBox(self, wx.NewId(), label=_("Show position in a window"))
+		self.showWindowCheckBox.SetValue(config.conf["FENReader"]["showWindow"])
+		sizer.Add(self.showWindowCheckBox,border=10,flag=wx.BOTTOM)
+
+class FENReaderPanel(SettingsPanel, Settings):
+	#TRANSLATORS: Settings panel title
+	title=_("FEN reader")
+
+	def makeSettings(self, sizer):
+		Settings.makeSettings(self, sizer)
+
+	def onSave(self):
+		config.conf["FENReader"]["phoneticMethod"] = self.phoneticMethodCheckBox.GetValue()
+		fen.phoneticMethod = self.phoneticMethodCheckBox.GetValue()
+		config.conf["FENReader"]["clipboard"] = self.clipboardCheckBox.GetValue()
+		config.conf["FENReader"]["showWindow"] = self.showWindowCheckBox.GetValue()
+
+class FENReaderSettings(settingsDialogs.SettingsDialog, Settings):
+	#TRANSLATORS: Settings dialog title
+	title=_("FEN reader settings")
+
+	def makeSettings(self, sizer):
+		Settings.makeSettings(self, sizer)
+
+	def postInit(self):
+		self.phoneticMethodCheckBox.SetFocus()
+
+	def onOk(self, evt):
+		config.conf["FENReader"]["phoneticMethod"] = self.phoneticMethodCheckBox.GetValue()
+		fen.phoneticMethod = self.phoneticMethodCheckBox.GetValue()
+		config.conf["FENReader"]["clipboard"] = self.clipboardCheckBox.GetValue()
+		config.conf["FENReader"]["showWindow"] = self.showWindowCheckBox.GetValue()
+		super(FENReaderSettings, self).onOk(evt)
