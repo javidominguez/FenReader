@@ -96,7 +96,7 @@ class DialogMsg(wx.Dialog):
 class Settings():
 	
 	def makeSettings(self, sizer):
-		self.phoneticMethodCheckBox=wx.CheckBox(self, wx.NewId(), label=_("Use phonetic alphabet in column names"))
+		self.phoneticMethodCheckBox=wx.CheckBox(self, wx.NewId(), label=_("Use phonetic alphabet in square names"))
 		self.phoneticMethodCheckBox.SetValue(config.conf["FENReader"]["phoneticMethod"])
 		sizer.Add(self.phoneticMethodCheckBox,border=10,flag=wx.BOTTOM)
 		self.clipboardCheckBox=wx.CheckBox(self, wx.NewId(), label=_("Always copy position to clipboard"))

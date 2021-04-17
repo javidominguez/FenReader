@@ -6,143 +6,235 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: fenCodeReader 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-20 23:21+0100\n"
-"PO-Revision-Date: 2016-02-20 23:21+0100\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2021-04-17 16:23+0200\n"
+"PO-Revision-Date: 2021-04-17 16:24+0200\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: fen.py:17
-msgid "English"
-msgstr "Anglais"
+#. TRANSLATORS: The configuration option in NVDA Preferences menu
+#. TRANSLATORS: Settings dialog title
+#: addon\globalPlugins\FENCodeReader\__init__.py:45
+#: addon\globalPlugins\FENCodeReader\_gui.py:124
+msgid "FEN reader settings"
+msgstr ""
 
-#: fen.py:18
-msgid "Spanish"
-msgstr "Espagnol"
+#: addon\globalPlugins\FENCodeReader\__init__.py:90
+msgid "Too much text has been selected"
+msgstr "Trop de texte a été sélectionné"
 
-#: fen.py:19
-msgid "French"
-msgstr "Français"
+#: addon\globalPlugins\FENCodeReader\__init__.py:107
+#: addon\globalPlugins\FENCodeReader\__init__.py:109
+#: addon\globalPlugins\FENCodeReader\_gui.py:88
+msgid "Copied to clipboard"
+msgstr "Copié dans le presse-papiers"
 
-#: fen.py:33
+#: addon\globalPlugins\FENCodeReader\__init__.py:111
+msgid "Fen Reader"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\__init__.py:118
+#: addon\globalPlugins\FENCodeReader\__init__.py:122
+msgid "There is not selected text"
+msgstr "Il n'y a pas de texte sélectionné"
+
+#: addon\globalPlugins\FENCodeReader\__init__.py:120
+msgid "Selected text doesn't contains a valid FEN code"
+msgstr "Le texte sélectionné ne contient pas un code FEN valide"
+
+#. Translators: Message presented in input help mode.
+#: addon\globalPlugins\FENCodeReader\__init__.py:127
+msgid ""
+"if selected text contains a valid FEN code, describes the chess game position"
+msgstr ""
+"Si le texte sélectionné contient un code FEN valide, décrit la position de "
+"jeu d'échecs"
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:57
+msgid "Board:"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:63
+msgid "Read position"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:64
+msgid "Copy to clipboard"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:65
+msgid "Close"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:99
+msgid "Use phonetic alphabet in square names"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:102
+msgid "Always copy position to clipboard"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\_gui.py:105
+msgid "Show position in a window"
+msgstr ""
+
+#. TRANSLATORS: Settings panel title
+#: addon\globalPlugins\FENCodeReader\_gui.py:111
+msgid "FEN reader"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:33
 #, python-format
 msgid "%s at %s.\n"
 msgstr "%s à %s.\n"
 
-#: fen.py:35
+#: addon\globalPlugins\FENCodeReader\fen.py:35
 #, python-format
 msgid "%s at %s"
 msgstr "%s à %s"
 
-#: fen.py:38
+#: addon\globalPlugins\FENCodeReader\fen.py:38
 #, python-format
 msgid "%s and %s.\n"
 msgstr "%s et %s.\n"
 
-#: fen.py:43
+#: addon\globalPlugins\FENCodeReader\fen.py:43
 msgid "White King"
 msgstr "Roi blanc"
 
-#: fen.py:43
+#: addon\globalPlugins\FENCodeReader\fen.py:43
 msgid "White kings"
 msgstr "Rois blancs"
 
-#: fen.py:44
+#: addon\globalPlugins\FENCodeReader\fen.py:44
 msgid "White Queen"
 msgstr "Dame blanche"
 
-#: fen.py:44
+#: addon\globalPlugins\FENCodeReader\fen.py:44
 msgid "White queens"
 msgstr "Dames blanches"
 
-#: fen.py:45
+#: addon\globalPlugins\FENCodeReader\fen.py:45
 msgid "White rook"
 msgstr "Tour blanche"
 
-#: fen.py:45
+#: addon\globalPlugins\FENCodeReader\fen.py:45
 msgid "White rooks"
 msgstr "Tours blanches"
 
-#: fen.py:46
+#: addon\globalPlugins\FENCodeReader\fen.py:46
 msgid "White bishop"
 msgstr "Fou blanc"
 
-#: fen.py:46
+#: addon\globalPlugins\FENCodeReader\fen.py:46
 msgid "White bishops"
 msgstr "Fous blancs"
 
-#: fen.py:47
+#: addon\globalPlugins\FENCodeReader\fen.py:47
 msgid "White knight"
 msgstr "Cavalier blanc"
 
-#: fen.py:47
+#: addon\globalPlugins\FENCodeReader\fen.py:47
 msgid "White knights"
 msgstr "Cavaliers blancs"
 
-#: fen.py:48
+#: addon\globalPlugins\FENCodeReader\fen.py:48
 msgid "White pown"
 msgstr "Pion blanc"
 
-#: fen.py:48
+#: addon\globalPlugins\FENCodeReader\fen.py:48
 msgid "White powns"
 msgstr "Pions blancs"
 
-#: fen.py:49
+#: addon\globalPlugins\FENCodeReader\fen.py:49
 msgid "Black King"
 msgstr "Roi noir"
 
-#: fen.py:49
+#: addon\globalPlugins\FENCodeReader\fen.py:49
 msgid "Black kings"
 msgstr "Rois noirs"
 
-#: fen.py:50
+#: addon\globalPlugins\FENCodeReader\fen.py:50
 msgid "Black Queen"
 msgstr "Dame noire"
 
-#: fen.py:50
+#: addon\globalPlugins\FENCodeReader\fen.py:50
 msgid "Black queens"
 msgstr "Dames noires"
 
-#: fen.py:51
+#: addon\globalPlugins\FENCodeReader\fen.py:51
 msgid "Black rook"
 msgstr "Tour noire"
 
-#: fen.py:51
+#: addon\globalPlugins\FENCodeReader\fen.py:51
 msgid "Black rooks"
 msgstr "Tours noires"
 
-#: fen.py:52
+#: addon\globalPlugins\FENCodeReader\fen.py:52
 msgid "Black bishop"
 msgstr "Fou noir"
 
-#: fen.py:52
+#: addon\globalPlugins\FENCodeReader\fen.py:52
 msgid "Black bishops"
 msgstr "Fous noirs"
 
-#: fen.py:53
+#: addon\globalPlugins\FENCodeReader\fen.py:53
 msgid "Black knight"
 msgstr "Cavalier noir"
 
-#: fen.py:53
+#: addon\globalPlugins\FENCodeReader\fen.py:53
 msgid "Black knights"
 msgstr "Cavaliers noirs"
 
-#: fen.py:54
+#: addon\globalPlugins\FENCodeReader\fen.py:54
 msgid "Black pown"
 msgstr "Pion noir"
 
-#: fen.py:54
+#: addon\globalPlugins\FENCodeReader\fen.py:54
 msgid "Black powns"
 msgstr "Pions noirs"
 
-#: fen.py:90
+#. Translators: Column names expressed in phonetic alphabet
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Alpha"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Bravo"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Charlie"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Delta"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Echo"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Foxtrot"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Golf"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Hotel"
+msgstr ""
+
+#: addon\globalPlugins\FENCodeReader\fen.py:94
 #, python-format
 msgid ""
 "%s\n"
@@ -151,7 +243,7 @@ msgstr ""
 "%s\n"
 "Jouent blancs"
 
-#: fen.py:92
+#: addon\globalPlugins\FENCodeReader\fen.py:96
 #, python-format
 msgid ""
 "%s\n"
@@ -160,40 +252,38 @@ msgstr ""
 "%s\n"
 "Jouent noirs"
 
-#: fencodereader.py:48
-msgid "Too much text has been selected"
-msgstr "Trop de texte a été sélectionné"
-
-#: fencodereader.py:58
-msgid "Copied to clipboard"
-msgstr "Copié dans le presse-papiers"
-
-#: fencodereader.py:61
-msgid "Selected text doesn't contains a valid FEN code"
-msgstr "Le texte sélectionné ne contient pas un code FEN valide"
-
-#: fencodereader.py:63
-msgid "There is not selected text"
-msgstr "Il n'y a pas de texte sélectionné"
-
-#: fencodereader.py:68
-msgid ""
-"if selected text contains a valid FEN code, describes the chess game position"
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: buildVars.py:17
+msgid "fenCodeReader"
 msgstr ""
-"Si le texte sélectionné contient un code FEN valide, décrit la position de "
-"jeu d'échecs"
 
-#: fencodereader.py:73
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
 msgid ""
-"if selected text contains a valid FEN code, describes the chess game "
-"position and copy it to clipboard"
+"This addon translates a chess game position from FEN code to human friendly "
+"description"
 msgstr ""
-"Si le texte sélectionné contient un code FEN valide, décrit la position de "
-"jeu d'échecs et copie celui-ci dans le presse-papiers"
 
-#: fencodereader.py:81
-msgid "Changes chess notation language"
-msgstr "Changer la langue de la notation"
+#~ msgid "English"
+#~ msgstr "Anglais"
+
+#~ msgid "Spanish"
+#~ msgstr "Espagnol"
+
+#~ msgid "French"
+#~ msgstr "Français"
+
+#~ msgid ""
+#~ "if selected text contains a valid FEN code, describes the chess game "
+#~ "position and copy it to clipboard"
+#~ msgstr ""
+#~ "Si le texte sélectionné contient un code FEN valide, décrit la position "
+#~ "de jeu d'échecs et copie celui-ci dans le presse-papiers"
+
+#~ msgid "Changes chess notation language"
+#~ msgstr "Changer la langue de la notation"
 
 #~ msgid ""
 #~ "FEN: %s\n"
