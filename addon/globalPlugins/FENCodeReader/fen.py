@@ -12,9 +12,9 @@ import addonHandler
 addonHandler.initTranslation()
 
 notations = {
-"en": "KQRBNPkqrbnp",
-"es": "RDTACPrdtacp",
-"fr": "RDTFCPrdtfcp"
+"en": "KQRBNPkqrbnp-wb",
+"es": "RDTACPrdtacp-bn",
+"fr": "RDTFCPrdtfcp-bn"
 }
 
 phoneticMethod = False
@@ -38,7 +38,12 @@ class piece():
 		list = _("%s and %s.\n") %(list, self.squares[-1])
 		return list
 		
-def decode(fenCode, signs="KQRBNPkqrbnp"):
+def decode(fenCode, notation="KQRBNPkqrbnp-wb"):
+	signs, turn = notation.split("-")
+	gameTurnStrings = {
+	turn[0]: _("%s\nWhite plays"),
+	turn[1]: _("%s\nBlack plays")
+	}
 	pieces = [
 	piece(signs[0], _("White King"), _("White kings")),
 	piece(signs[1], _("White Queen"), _("White queens")),
@@ -90,10 +95,8 @@ def decode(fenCode, signs="KQRBNPkqrbnp"):
 		board = board+p.getSquares()
 	try:
 		gameTurn = fenCode.split()[1]
-		if gameTurn.upper() == "W":
-			board = _("%s\nWhite plays") % board
-		elif gameTurn.upper() == "B":
-			board = _("%s\nBlack plays") % board
+		if gameTurn.lower() in gameTurnStrings:
+			board = gameTurnStrings[gameTurn.lower()] % board
 	except:
 		pass
 	return board
