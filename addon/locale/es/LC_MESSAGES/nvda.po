@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: fenCodeReader 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-04-17 16:09+0200\n"
-"PO-Revision-Date: 2021-04-17 16:17+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2021-04-20 13:36+0100\n"
+"Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.7.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. TRANSLATORS: The configuration option in NVDA Preferences menu
@@ -58,7 +58,7 @@ msgstr ""
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:57
 msgid "Board:"
-msgstr "Tablero"
+msgstr "Tablero:"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:63
 msgid "Read position"
@@ -74,7 +74,7 @@ msgstr "Cerrar"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:99
 msgid "Use phonetic alphabet in square names"
-msgstr "Usar el alfabeto fonético en los nombres de escaques"
+msgstr "Usar el alfabeto fonético en los nombres de las casillas"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:102
 msgid "Always copy position to clipboard"
@@ -87,7 +87,7 @@ msgstr "Mostrar la posición en una ventana"
 #. TRANSLATORS: Settings panel title
 #: addon\globalPlugins\FENCodeReader\_gui.py:111
 msgid "FEN reader"
-msgstr "Fen reader"
+msgstr "Lector FEN"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:33
 #, python-format

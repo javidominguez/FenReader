@@ -19,11 +19,11 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description" : _("This addon translates a chess game position from FEN code to human friendly description"),
 	# version
-	"addon_version" : "2.0dev",
+	"addon_version" : "2.0",
 	# Author(s)
 	"addon_author" : u"Javi Dominguez <fjavids@gmail.com>",
 	# URL for the add-on documentation support
-	"addon_url" : 'http://addons.nvda-project.org',
+	"addon_url" : 'https://github.com/javidominguez/fenreader#readme',
 	# File name for the add-on help file.
 	"addon_docFileName" : "readme.html",
 # Minimum NVDA version supported (e.g. "2018.3")

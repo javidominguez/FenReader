@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: fenCodeReader 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-04-17 16:23+0200\n"
-"PO-Revision-Date: 2021-04-17 16:24+0200\n"
+"PO-Revision-Date: 2021-04-20 14:12+0100\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.7.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
@@ -24,7 +24,7 @@ msgstr ""
 #: addon\globalPlugins\FENCodeReader\__init__.py:45
 #: addon\globalPlugins\FENCodeReader\_gui.py:124
 msgid "FEN reader settings"
-msgstr ""
+msgstr "Préférences de FEN reader"
 
 #: addon\globalPlugins\FENCodeReader\__init__.py:90
 msgid "Too much text has been selected"
@@ -38,7 +38,7 @@ msgstr "Copié dans le presse-papiers"
 
 #: addon\globalPlugins\FENCodeReader\__init__.py:111
 msgid "Fen Reader"
-msgstr ""
+msgstr "Fen Reader"
 
 #: addon\globalPlugins\FENCodeReader\__init__.py:118
 #: addon\globalPlugins\FENCodeReader\__init__.py:122
@@ -59,36 +59,36 @@ msgstr ""
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:57
 msgid "Board:"
-msgstr ""
+msgstr "Tableau:"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:63
 msgid "Read position"
-msgstr ""
+msgstr "Lire position"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:64
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier dans le presse-papiers"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:65
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:99
 msgid "Use phonetic alphabet in square names"
-msgstr ""
+msgstr "Utiliser l'alphabet phonétique dans les noms des cases"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:102
 msgid "Always copy position to clipboard"
-msgstr ""
+msgstr "Copiez toujours la position dans le presse-papiers"
 
 #: addon\globalPlugins\FENCodeReader\_gui.py:105
 msgid "Show position in a window"
-msgstr ""
+msgstr "Montrer la position dans une fenêtre"
 
 #. TRANSLATORS: Settings panel title
 #: addon\globalPlugins\FENCodeReader\_gui.py:111
 msgid "FEN reader"
-msgstr ""
+msgstr "Lecteur FEN"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:33
 #, python-format
@@ -204,35 +204,35 @@ msgstr "Pions noirs"
 #. Translators: Column names expressed in phonetic alphabet
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Alpha"
-msgstr ""
+msgstr "Anatole"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Bravo"
-msgstr ""
+msgstr "Berthe"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Charlie"
-msgstr ""
+msgstr "Célestin"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Delta"
-msgstr ""
+msgstr "Désiré"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Echo"
-msgstr ""
+msgstr "Eugène"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Foxtrot"
-msgstr ""
+msgstr "François"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Golf"
-msgstr ""
+msgstr "Gaston"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Hotel"
-msgstr ""
+msgstr "Henri"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:94
 #, python-format
@@ -256,7 +256,7 @@ msgstr ""
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 #: buildVars.py:17
 msgid "fenCodeReader"
-msgstr ""
+msgstr "Lecteur de codes FEN"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -265,6 +265,7 @@ msgid ""
 "This addon translates a chess game position from FEN code to human friendly "
 "description"
 msgstr ""
+"Cette extension décrit une position de jeu d'échecs a partir de un code FEN."
 
 #~ msgid "English"
 #~ msgstr "Anglais"
