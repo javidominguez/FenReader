@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fenCodeReader 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-04-17 16:23+0200\n"
-"PO-Revision-Date: 2021-04-20 14:12+0100\n"
+"PO-Revision-Date: 2021-04-24 17:33+0100\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language: fr\n"
@@ -204,35 +204,35 @@ msgstr "Pions noirs"
 #. Translators: Column names expressed in phonetic alphabet
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Alpha"
-msgstr "Anatole"
+msgstr "Ana"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Bravo"
-msgstr "Berthe"
+msgstr "Bella"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Charlie"
-msgstr "Célestin"
+msgstr "César"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Delta"
-msgstr "Désiré"
+msgstr "David"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Echo"
-msgstr "Eugène"
+msgstr "Eva"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Foxtrot"
-msgstr "François"
+msgstr "Félix"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Golf"
-msgstr "Gaston"
+msgstr "Gustavo"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:57
 msgid "Hotel"
-msgstr "Henri"
+msgstr "Héctor"
 
 #: addon\globalPlugins\FENCodeReader\fen.py:94
 #, python-format
