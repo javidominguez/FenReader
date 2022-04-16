@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description" : _("This addon translates a chess game position from FEN code to human friendly description"),
 	# version
-	"addon_version" : "2.1",
+	"addon_version" : "2.2",
 	# Author(s)
 	"addon_author" : u"Javi Dominguez <fjavids@gmail.com>",
 	# URL for the add-on documentation support
