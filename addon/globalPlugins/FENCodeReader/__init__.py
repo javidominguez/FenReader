@@ -86,7 +86,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			timeForSearching = Thread(target=sleep, args=(0.3,))
 			timeForSearching.start()
 			while not description and c < l-16:
-				if not timeForSearching.isAlive():
+				if not timeForSearching.is_alive():
 					ui.message(_("Too much text has been selected"))
 					return
 				# First use english notation by default
