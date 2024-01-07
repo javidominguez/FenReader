@@ -14,11 +14,13 @@ import languageHandler
 import config
 import ui
 import textInfos
+import speech
 import versionInfo
 if versionInfo.version_year < 2019:
 	import win32clipboard
 from time import sleep
 from threading import Thread
+from scriptHandler import script
 from . import fen
 from ._gui import *
 
@@ -34,6 +36,8 @@ addonHandler.initTranslation()
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
 	scriptCategory = "FEN reader"
+
+	speechOnDemand = {"speakOnDemand": True} if hasattr(speech.speech.SpeechMode, "onDemand") else {}
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
@@ -120,7 +124,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					ui.message(_("Selected text doesn't contains a valid FEN code"))
 		else:
 			ui.message(_("There is not selected text"))
-			
+
+	@script(**speechOnDemand)
 	def script_describeBoard(self, gesture):
 		self.describeBoard()
 	# Translators: Message presented in input help mode.
