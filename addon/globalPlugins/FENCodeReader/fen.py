@@ -41,8 +41,8 @@ class piece():
 def decode(fenCode, notation="KQRBNPkqrbnp-wb"):
 	signs, turn = notation.split("-")
 	gameTurnStrings = {
-	turn[0]: _("%s\nWhite plays"),
-	turn[1]: _("%s\nBlack plays")
+	turn[0]: _("%s\nWhite to move"),
+	turn[1]: _("%s\nBlack to move")
 	}
 	pieces = [
 	piece(signs[0], _("White King"), _("White kings")),
@@ -50,13 +50,13 @@ def decode(fenCode, notation="KQRBNPkqrbnp-wb"):
 	piece(signs[2], _("White rook"), _("White rooks")),
 	piece(signs[3], _("White bishop"), _("White bishops")),
 	piece(signs[4], _("White knight"), _("White knights")),
-	piece(signs[5], _("White pown"), _("White powns")),
+	piece(signs[5], _("White pawn"), _("White pawns")),
 	piece(signs[6], _("Black King"), _("Black kings")),
 	piece(signs[7], _("Black Queen"), _("Black queens")),
 	piece(signs[8], _("Black rook"), _("Black rooks")),
 	piece(signs[9], _("Black bishop"), _("Black bishops")),
 	piece(signs[10], _("Black knight"), _("Black knights")),
-	piece(signs[11], _("Black pown"), _("Black powns")) ]
+	piece(signs[11], _("Black pawn"), _("Black pawns")) ]
 	if phoneticMethod:
 		# Translators: Column names expressed in phonetic alphabet
 		column = (_("Alpha"), _("Bravo"), _("Charlie"), _("Delta"), _("Echo"), _("Foxtrot"), _("Golf"), _("Hotel"))
