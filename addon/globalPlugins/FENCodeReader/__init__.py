@@ -16,8 +16,12 @@ import ui
 import textInfos
 import speech
 import versionInfo
-if versionInfo.version_year < 2019:
-	import win32clipboard
+try:
+	if versionInfo.version_year < 2019:
+		import win32clipboard
+		version_year = versionInfo.version_year
+except:
+	version_year  = 0
 from time import sleep
 from threading import Thread
 from scriptHandler import script
@@ -103,7 +107,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				c = c+1
 			if description:
 				if config.conf["FENReader"]["clipboard"]:
-					if not api.copyToClip(description) and versionInfo.version_year < 2019:
+					if not api.copyToClip(description) and version_year < 2019:
 						win32clipboard.OpenClipboard()
 						win32clipboard.EmptyClipboard()
 						win32clipboard.SetClipboardText(description)
