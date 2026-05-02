@@ -1,1 +1,1 @@
-* Speech on demand feature implemented.
+* 2026.1 compatibility
