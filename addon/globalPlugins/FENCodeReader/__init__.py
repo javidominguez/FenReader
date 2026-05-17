@@ -36,6 +36,7 @@ confspec = {
 config.conf.spec["FENReader"]=confspec
 
 addonHandler.initTranslation()
+from .actualizadorRecursos import ActualizadorRecursos
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	
@@ -45,6 +46,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
+		self._actualizador = ActualizadorRecursos("javidominguez", "fenReader")
 		if hasattr(settingsDialogs, 'SettingsPanel'):
 			NVDASettingsDialog.categoryClasses.append(FENReaderPanel)
 		else:
@@ -59,6 +61,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.mainFrame._popupSettingsDialog(FENReaderSettings)
 
 	def terminate(self):
+		self._actualizador.detener()
 		try:
 			if hasattr(settingsDialogs, 'SettingsPanel'):
 				NVDASettingsDialog.categoryClasses.remove(FENReaderPanel)
@@ -66,6 +69,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self.prefsMenu.RemoveItem(self.FENReaderSettingsItem)
 		except:
 			pass
+		super().terminate()
 
 	def getRawText(self):
 		obj=api.getFocusObject()
