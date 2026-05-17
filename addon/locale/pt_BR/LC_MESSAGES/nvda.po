@@ -5,51 +5,51 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fenCodeReader 1.0\n"
-"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2021-04-17 16:09+0200\n"
-"PO-Revision-Date: 2021-11-05 11:38-0300\n"
+"Project-Id-Version: fenCodeReader 2026.1\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-05-09 22:32+0200\n"
+"PO-Revision-Date: 2026-05-17 19:39+0200\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. TRANSLATORS: The configuration option in NVDA Preferences menu
 #. TRANSLATORS: Settings dialog title
-#: addon\globalPlugins\FENCodeReader\__init__.py:45
+#: addon\globalPlugins\FENCodeReader\__init__.py:53
 #: addon\globalPlugins\FENCodeReader\_gui.py:124
 msgid "FEN reader settings"
 msgstr "Configurações do FEN reader"
 
-#: addon\globalPlugins\FENCodeReader\__init__.py:90
+#: addon\globalPlugins\FENCodeReader\__init__.py:98
 msgid "Too much text has been selected"
 msgstr "Muito texto foi selecionado"
 
-#: addon\globalPlugins\FENCodeReader\__init__.py:107
-#: addon\globalPlugins\FENCodeReader\__init__.py:109
+#: addon\globalPlugins\FENCodeReader\__init__.py:115
+#: addon\globalPlugins\FENCodeReader\__init__.py:117
 #: addon\globalPlugins\FENCodeReader\_gui.py:88
 msgid "Copied to clipboard"
 msgstr "Copiado para a área de transferência"
 
-#: addon\globalPlugins\FENCodeReader\__init__.py:111
+#: addon\globalPlugins\FENCodeReader\__init__.py:119
 msgid "Fen Reader"
 msgstr "Fen Reader"
 
-#: addon\globalPlugins\FENCodeReader\__init__.py:118
-#: addon\globalPlugins\FENCodeReader\__init__.py:122
+#: addon\globalPlugins\FENCodeReader\__init__.py:126
+#: addon\globalPlugins\FENCodeReader\__init__.py:130
 msgid "There is not selected text"
 msgstr "Não há texto selecionado"
 
-#: addon\globalPlugins\FENCodeReader\__init__.py:120
+#: addon\globalPlugins\FENCodeReader\__init__.py:128
 msgid "Selected text doesn't contains a valid FEN code"
 msgstr "O texto selecionado não contém um código FEN válido"
 
 #. Translators: Message presented in input help mode.
-#: addon\globalPlugins\FENCodeReader\__init__.py:127
+#: addon\globalPlugins\FENCodeReader\__init__.py:136
 msgid ""
 "if selected text contains a valid FEN code, describes the chess game position"
 msgstr ""
@@ -104,152 +104,152 @@ msgstr "%s em %s"
 msgid "%s and %s.\n"
 msgstr "%s e %s.\n"
 
-#: addon\globalPlugins\FENCodeReader\fen.py:43
-msgid "White King"
-msgstr "Rei Branco"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:43
-msgid "White kings"
-msgstr "Reis Brancos"
-
 #: addon\globalPlugins\FENCodeReader\fen.py:44
-msgid "White Queen"
-msgstr "Dama Branca"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:44
-msgid "White queens"
-msgstr "Damas Brancas"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:45
-msgid "White rook"
-msgstr "Torre Branca"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:45
-msgid "White rooks"
-msgstr "Torres Brancas"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:46
-msgid "White bishop"
-msgstr "Bispo Branco"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:46
-msgid "White bishops"
-msgstr "Bispos Brancos"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:47
-msgid "White knight"
-msgstr "Cavalo Branco"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:47
-msgid "White knights"
-msgstr "Cavalos Brancos"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:48
-msgid "White pown"
-msgstr "Peão Branco"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:48
-msgid "White powns"
-msgstr "Peões Brancos"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:49
-msgid "Black King"
-msgstr "Rei Negro"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:49
-msgid "Black kings"
-msgstr "Reis Negros"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:50
-msgid "Black Queen"
-msgstr "Dama Negra"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:50
-msgid "Black queens"
-msgstr "Damas Negras"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:51
-msgid "Black rook"
-msgstr "Torre Negra"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:51
-msgid "Black rooks"
-msgstr "Torres Negras"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:52
-msgid "Black bishop"
-msgstr "Bispo Negro"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:52
-msgid "Black bishops"
-msgstr "Bispos Negros"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:53
-msgid "Black knight"
-msgstr "Cavalo Negro"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:53
-msgid "Black knights"
-msgstr "Cavalos Negros"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:54
-msgid "Black pown"
-msgstr "Peão Negro"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:54
-msgid "Black powns"
-msgstr "Peões Negros"
-
-#. Translators: Column names expressed in phonetic alphabet
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Alpha"
-msgstr "Ana"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Bravo"
-msgstr "Bella"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Charlie"
-msgstr "César"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Delta"
-msgstr "David"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Echo"
-msgstr "Eva"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Foxtrot"
-msgstr "Felix"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Golf"
-msgstr "Gustavo"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:57
-msgid "Hotel"
-msgstr "Héctor"
-
-#: addon\globalPlugins\FENCodeReader\fen.py:94
 #, python-format
 msgid ""
 "%s\n"
-"White plays"
+"White to move"
 msgstr ""
 "%s\n"
 "Jogam as Brancas"
 
-#: addon\globalPlugins\FENCodeReader\fen.py:96
+#: addon\globalPlugins\FENCodeReader\fen.py:45
 #, python-format
 msgid ""
 "%s\n"
-"Black plays"
+"Black to move"
 msgstr ""
 "%s\n"
-"Jogam as Negras"
+"Jogam as Negras "
+
+#: addon\globalPlugins\FENCodeReader\fen.py:48
+msgid "White King"
+msgstr "Rei Branco"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:48
+msgid "White kings"
+msgstr "Reis Brancos"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:49
+msgid "White Queen"
+msgstr "Dama Branca"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:49
+msgid "White queens"
+msgstr "Damas Brancas"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:50
+msgid "White rook"
+msgstr "Torre Branca"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:50
+msgid "White rooks"
+msgstr "Torres Brancas"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:51
+msgid "White bishop"
+msgstr "Bispo Branco"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:51
+msgid "White bishops"
+msgstr "Bispos Brancos"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:52
+msgid "White knight"
+msgstr "Cavalo Branco"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:52
+msgid "White knights"
+msgstr "Cavalos Brancos"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:53
+msgid "White pawn"
+msgstr "Peão Branco"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:53
+msgid "White pawns"
+msgstr "Peões Brancos"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:54
+msgid "Black King"
+msgstr "Rei Negro"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:54
+msgid "Black kings"
+msgstr "Reis Negros"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:55
+msgid "Black Queen"
+msgstr "Dama Negra"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:55
+msgid "Black queens"
+msgstr "Damas Negras"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:56
+msgid "Black rook"
+msgstr "Torre Negra"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:56
+msgid "Black rooks"
+msgstr "Torres Negras"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Black bishop"
+msgstr "Bispo Negro"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:57
+msgid "Black bishops"
+msgstr "Bispos Negros"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:58
+msgid "Black knight"
+msgstr "Cavalo Negro"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:58
+msgid "Black knights"
+msgstr "Cavalos Negros"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:59
+msgid "Black pawn"
+msgstr "Peão Negro"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:59
+msgid "Black pawns"
+msgstr "Peões Negros"
+
+#. Translators: Column names expressed in phonetic alphabet
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Alpha"
+msgstr "Ana"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Bravo"
+msgstr "Bella"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Charlie"
+msgstr "César"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Delta"
+msgstr "David"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Echo"
+msgstr "Eva"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Foxtrot"
+msgstr "Felix"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Golf"
+msgstr "Gustavo"
+
+#: addon\globalPlugins\FENCodeReader\fen.py:62
+msgid "Hotel"
+msgstr "Héctor"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
@@ -266,6 +266,22 @@ msgid ""
 msgstr ""
 "Este addon traduz uma posição de jogo de xadrez do código FEN para uma "
 "descrição amigável para humanos"
+
+#, python-format
+#~ msgid ""
+#~ "%s\n"
+#~ "White plays"
+#~ msgstr ""
+#~ "%s\n"
+#~ "Jogam as Brancas"
+
+#, python-format
+#~ msgid ""
+#~ "%s\n"
+#~ "Black plays"
+#~ msgstr ""
+#~ "%s\n"
+#~ "Jogam as Negras"
 
 #~ msgid "Use phonetic alphabet in column names"
 #~ msgstr "Usar el alfabeto fonético para los nombres de columnas"
