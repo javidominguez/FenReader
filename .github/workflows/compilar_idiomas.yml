@@ -33,7 +33,7 @@ env:
   NOMBRE_COMPLEMENTO: "fenReader"
   # Tag de la release de recursos (debe coincidir con el parámetro
   # tag_release del ActualizadorRecursos en tu código Python)
-  TAG_RELEASE: "2026"
+  TAG_RELEASE: "recursos-latest"
   # Qué incluir en el paquete (true/false)
   INCLUIR_IDIOMAS: "true"
   INCLUIR_DOCUMENTACION: "true"
@@ -253,6 +253,39 @@ jobs:
           print(f"\nHTML generados: {generados}")
           PYEOF
 
+      - name: Determinar etiqueta de recursos
+        id: etiqueta
+        run: |
+          python3 << 'PYEOF'
+          import os, re, sys, types
+
+          tag = os.environ.get("TAG_RELEASE", "recursos-latest")
+          for mod in ['SCons', 'SCons.Script', 'SCons.Node', 'SCons.Node.FS']:
+              if mod not in sys.modules:
+                  sys.modules[mod] = types.ModuleType(mod)
+          m = sys.modules['SCons.Script']
+          for attr in ['EnsurePythonVersion','Variables','BoolVariable','Environment','Copy','Builder']:
+              if not hasattr(m, attr):
+                  setattr(m, attr, lambda *a, **kw: None)
+
+          if os.path.exists("buildVars.py"):
+              sys.path.insert(0, '.')
+              import buildVars
+              addon_info = getattr(buildVars, 'addon_info', {})
+              addon_version = addon_info.get('addon_version', '') if hasattr(addon_info, 'get') else ''
+              if addon_version:
+                  # Capturamos hasta dos grupos de números separados por punto (ej: 2026.2.0 -> 2026.2)
+                  partes = re.findall(r"\d+", str(addon_version).strip())
+                  if len(partes) >= 2:
+                      tag = f"recursos_{partes[0]}.{partes[1]}"
+                  elif partes:
+                      tag = f"recursos_{partes[0]}"
+
+          print(f"Etiqueta de recursos: {tag}")
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as gh:
+              gh.write(f"tag={tag}\n")
+          PYEOF
+
       - name: Generar metadatos del paquete
         id: meta
         run: |
@@ -368,7 +401,7 @@ jobs:
       - name: Publicar paquete de recursos
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ env.TAG_RELEASE }}
+          tag_name: ${{ steps.etiqueta.outputs.tag }}
           name: "🌐 Recursos - ${{ steps.meta.outputs.fecha }}"
           body: |
             ## Actualización automática de recursos

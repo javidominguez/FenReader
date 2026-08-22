@@ -46,7 +46,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
-		self._actualizador = ActualizadorRecursos("javidominguez", "fenReader")
+		self._actualizador = ActualizadorRecursos("javidominguez", "fenReader", intervalo_horas=12)
 		if hasattr(settingsDialogs, 'SettingsPanel'):
 			NVDASettingsDialog.categoryClasses.append(FENReaderPanel)
 		else:
